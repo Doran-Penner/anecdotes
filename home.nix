@@ -502,6 +502,7 @@
 				"home-manager".source = symlink "${confRoot}";
 				"ov/config.yaml".source = symlink "${confRoot}/misc/ov.yaml";
 				"jj/config.toml".source = symlink "${confRoot}/misc/jj.toml";
+				"jjui/config.toml".source = symlink "${confRoot}/misc/jjui.toml";
 				"helix/config.toml".source = symlink "${confRoot}/misc/helix.toml";
 			};
 	};

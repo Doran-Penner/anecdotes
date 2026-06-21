@@ -1,0 +1,9 @@
+[[bindings]]
+action = "revisions.inline_describe.new_line"
+key = "shift+enter"
+scope = "revisions.inline_describe"
+
+[[bindings]]
+action = "revisions.inline_describe.accept"
+key = "enter"
+scope = "revisions.inline_describe"
