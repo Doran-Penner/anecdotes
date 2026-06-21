@@ -1,0 +1,35 @@
+# quit if size less than one screen
+QuitSmall: true
+KeyBind:
+  # default is write when exiting
+  write_exit:
+    - "q"
+  # but can avoid if desired
+  exit:
+    - "Q"
+  # pairs better with Space for next_section (default)
+  previous_section:
+    - "Backspace"
+  # had issues getting this to work on other keybinds for some reason
+  help:
+    - "ctrl+alt+c"
+  up:
+    - "k"
+    - "Up"
+  down:
+    - "j"
+    - "Down"
+  left:
+    - "Left"
+    - "h"
+  right:
+    - "Right"
+    - "l"
+  half_left:
+    - "ctrl+Left"
+    - "ctrl+h"
+  half_right:
+    - "ctrl+Right"
+    - "ctrl+l"
+  jump_target:
+    - "J"

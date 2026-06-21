@@ -1,0 +1,23 @@
+[aliases]
+difft = ["diff", "--tool", "difft"]
+showt = ["show", "--tool", "difft"]
+
+[git]
+private-commits = "description(glob:'HIDDEN:*' | glob:'[[]hide[]]*')"
+sign-on-push = true
+
+[merge-tools.difft]
+diff-args = ["--color=always", "$left", "$right"]
+
+[signing]
+backend = "ssh"
+behavior = "drop"
+key = "~/.ssh/id_ed25519.pub"
+
+[ui]
+default-command = ["util", "exec", "--", "jjui"]
+pager = "ov"
+
+[user]
+email = "doranaviv@gmail.com"
+name = "Doran Penner"

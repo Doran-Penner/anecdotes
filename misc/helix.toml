@@ -1,0 +1,39 @@
+theme = "catppuccin_frappe"
+
+[editor]
+bufferline = "multiple"
+color-modes = true
+cursorline = true
+rulers = [80, 120]
+true-color = true
+
+[editor.cursor-shape]
+insert = "bar"
+normal = "block"
+select = "underline"
+
+[editor.smart-tab]
+enable = false
+
+# have to duplicate this, oh well
+# https://github.com/helix-editor/helix/issues/2125
+
+[keys.normal]
+"A-`" = "switch_case"
+"A-~" = "switch_case"
+"`" = "switch_to_lowercase"
+end = "goto_line_end_newline"
+"~" = "switch_to_uppercase"
+
+[keys.normal.g]
+l = "goto_line_end_newline"
+
+[keys.select]
+"A-`" = "switch_case"
+"A-~" = "switch_case"
+"`" = "switch_to_lowercase"
+end = "goto_line_end_newline"
+"~" = "switch_to_uppercase"
+
+[keys.select.g]
+l = "goto_line_end_newline"
