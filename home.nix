@@ -116,7 +116,6 @@
 
 	programs.wezterm = {
 		enable = true;
-		extraConfig = builtins.readFile ./misc/wezterm.lua;
 	};
 
 	# use ghostty for dropdown terminal
@@ -504,6 +503,7 @@
 				"jj/config.toml".source = symlink "${confRoot}/misc/jj.toml";
 				"jjui/config.toml".source = symlink "${confRoot}/misc/jjui.toml";
 				"helix/config.toml".source = symlink "${confRoot}/misc/helix.toml";
+				"wezterm/wezterm.lua".source = symlink "${confRoot}/misc/wezterm.lua";
 			};
 	};
 

@@ -1,3 +1,6 @@
+local wezterm = require 'wezterm'
+local config = wezterm.config_builder()
+
 -- thank you to https://github.com/wez/wezterm/issues/2854
 -- see lower note
 local extract_tab_bar_colors_from_theme = function(theme_name)
@@ -36,9 +39,9 @@ local my_theme = scheme_for_appearance(get_appearance())
 
 local tab_bar_theme = extract_tab_bar_colors_from_theme(my_theme)
 
-return {
-	color_scheme = my_theme,
-	colors = { tab_bar = tab_bar_theme.tab_bar, },
-	window_frame = tab_bar_theme.window_frame_colors,
-	warn_about_missing_glyphs = false,
-}
+config.color_scheme = my_theme
+config.colors = { tab_bar = tab_bar_theme.tab_bar, }
+config.window_frame = tab_bar_theme.window_frame_colors
+config.warn_about_missing_glyphs = false
+
+return config
