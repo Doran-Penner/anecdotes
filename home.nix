@@ -181,6 +181,8 @@
 			texlab
 			# go
 			gopls
+			# toml
+			taplo
 		];
 		# settings are in misc/helix.toml so I can clone settings on other machines
 		languages = {
