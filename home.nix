@@ -77,7 +77,7 @@
 		inputs.unstable.legacyPackages.${pkgs.stdenv.hostPlatform.system}.jujutsu
 		inputs.unstable.legacyPackages.${pkgs.stdenv.hostPlatform.system}.jjui
 		ov
-		zulip
+		inputs.unstable.legacyPackages.${pkgs.stdenv.hostPlatform.system}.zulip
 		bitwarden-desktop
 		shellcheck
 	];
@@ -97,6 +97,7 @@
 		nativeMessagingHosts = [
 			pkgs.kdePackages.plasma-browser-integration
 		];
+		configPath = "${config.xdg.configHome}/mozilla/firefox";
 	};
 
 	programs.sioyek = {
@@ -110,7 +111,7 @@
 			"next_state" = ["<S-<space>>" "<C-<right>>"];
 		};
 		config = {
-			"startup_commands" = "toggle_horizontal_scroll_lock";
+			"startup_commands" = ["toggle_horizontal_scroll_lock"];
 		};
 	};
 
@@ -172,7 +173,7 @@
 			python312Packages.python-lsp-server
 			# javascript
 			typescript	# do I need this?
-			nodePackages.typescript-language-server
+			typescript-language-server
 			# nix
 			nil
 			# typst
@@ -252,7 +253,7 @@
 		# wrap it to see fastfetch
 		package = pkgs.symlinkJoin {
 			name = "hyfetch";
-			paths = [pkgs.hyfetch];
+			paths = [inputs.unstable.legacyPackages.${pkgs.stdenv.hostPlatform.system}.hyfetch];
 			buildInputs = [pkgs.makeWrapper];
 			postBuild = ''
 				wrapProgram $out/bin/hyfetch \
@@ -450,17 +451,18 @@
 		enable = true;
 		# silly default config removed
 		enableDefaultConfig = false;
-		matchBlocks."*" = {
-			addKeysToAgent = "yes";	# CHANGED
-			forwardAgent = false;
-			compression = false;
-			serverAliveInterval = 0;
-			serverAliveCountMax = 3;
-			hashKnownHosts = false;
-			userKnownHostsFile = "~/.ssh/known_hosts";
-			controlMaster = "no";
-			controlPath = "~/.ssh/master-%r@%n:%p";
-			controlPersist = "no";
+		settings."*" = {
+			ForwardAgent = false;
+			# CHANGED
+			AddKeysToAgent = "yes";
+			Compression = false;
+			ServerAliveInterval = 0;
+			ServerAliveCountMax = 3;
+			HashKnownHosts = false;
+			UserKnownHostsFile = "~/.ssh/known_hosts";
+			ControlMaster = "no";
+			ControlPath = "~/.ssh/master-%r@%n:%p";
+			ControlPersist = "no";
 		};
 		includes = [
 			(lib.removePrefix "${config.home.homeDirectory}/.ssh/" config.age.secrets.reed.path)

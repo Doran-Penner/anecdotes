@@ -41,8 +41,9 @@
 		pkgs = import nixpkgs {
 			inherit system;
 			config.allowUnfree = true;
-			# TODO for zulip; remove when it's upgraded in nixpkgs (maybe upstream)
-			# https://github.com/NixOS/nixpkgs/pull/526892
+			# TODO for bitwarden and maybe others;
+			# remove when it's upgraded in nixpkgs (maybe upstream)
+			# https://github.com/NixOS/nixpkgs/issues/526914
 			config.permittedInsecurePackages = ["electron-39.8.10"];
 		};
 	in {

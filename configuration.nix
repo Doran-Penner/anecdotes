@@ -152,7 +152,7 @@
 		git
 		(lutris.override {
 			extraLibraries = pkgs: [
-				wineWowPackages.stable
+				wineWow64Packages.stable
 			];
 		})
 		kdePackages.krohnkite
