@@ -44,4 +44,19 @@ config.colors = { tab_bar = tab_bar_theme.tab_bar, }
 config.window_frame = tab_bar_theme.window_frame_colors
 config.warn_about_missing_glyphs = false
 
+local keys = {
+	{
+		key = 'c',
+		mods = 'CTRL',
+		action = wezterm.action.CopyTo 'ClipboardAndPrimarySelection',
+	},
+	{
+		key = 'C',
+		mods = 'CTRL',
+		action = wezterm.action.SendKey { key = 'c', mods = 'CTRL' },
+	},
+}
+
+config.keys = keys
+
 return config
