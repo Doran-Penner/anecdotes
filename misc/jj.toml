@@ -5,7 +5,7 @@ difft = ["diff", "--tool", "difft"]
 showt = ["show", "--tool", "difft"]
 
 [git]
-private-commits = "description(glob:'HIDDEN:*' | glob:'[[]hide[]]*')"
+private-commits = "private"
 sign-on-push = true
 
 [merge-tools.difft]
@@ -32,3 +32,6 @@ concat(
   diff.git(),
 )
 '''
+
+[revset-aliases]
+private = "mutable() & subject(regex:'\\[(hide|dev|mega|wip|todo|fun)\\].*')"
