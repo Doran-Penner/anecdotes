@@ -55,6 +55,16 @@ local keys = {
 		mods = 'CTRL',
 		action = wezterm.action.SendKey { key = 'c', mods = 'CTRL' },
 	},
+	{
+		key = 'v',
+		mods = 'CTRL',
+		action = wezterm.action.PasteFrom 'Clipboard',
+	},
+	{
+		key = 'V',
+		mods = 'CTRL',
+		action = wezterm.action.SendKey { key = 'v', mods = 'CTRL' },
+	},
 }
 
 config.keys = keys
