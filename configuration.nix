@@ -47,6 +47,8 @@
 	boot.initrd.luks.devices."luks-2b96fe1e-6e3d-4517-8a62-fa4d6abbad57".device = "/dev/disk/by-uuid/2b96fe1e-6e3d-4517-8a62-fa4d6abbad57";
 	boot.initrd.luks.devices."luks-2b96fe1e-6e3d-4517-8a62-fa4d6abbad57".keyFile = "/crypto_keyfile.bin";
 
+	services.bootvine.enable = true;
+
 	networking.hostName = "legionix";	# Define your hostname.
 
 	# add caches

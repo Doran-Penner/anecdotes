@@ -18,6 +18,10 @@
 		agenix.url = "github:ryantm/agenix";
 		agenix.inputs.nixpkgs.follows = "nixpkgs";
 
+		# bootvine, nicer systemd startup output
+		bootvine.url = "git+https://codeberg.org/wvhulle/bootvine";
+		bootvine.inputs.nixpkgs.follows = "nixpkgs";
+
 		# catppuccin for btop
 		btop-themes.url = "github:catppuccin/btop";
 		btop-themes.flake = false;
@@ -34,6 +38,7 @@
 		home-manager,
 		flake-programs-sqlite,
 		agenix,
+		bootvine,
 		btop-themes,
 		bat-themes,
 	}: let
@@ -52,6 +57,7 @@
 			modules = [
 				./configuration.nix
 				agenix.nixosModules.default
+				bootvine.nixosModules.default
 			];
 			specialArgs = {inherit inputs;};
 		};
